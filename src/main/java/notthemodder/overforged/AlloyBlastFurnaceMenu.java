@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -7,10 +7,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+/**
+ * Container menu for the Alloy Blast Furnace. Exposes two metal input slots,
+ * one fuel slot, and one output slot, along with the burn/cook progress data
+ * for the client-side screen renderer.
+ */
 public final class AlloyBlastFurnaceMenu extends AbstractContainerMenu {
     private final Container container;
     private final ContainerData data;
@@ -73,12 +77,26 @@ public final class AlloyBlastFurnaceMenu extends AbstractContainerMenu {
 
     public boolean isBurning() { return data.get(0) > 0; }
 
+    /**
+     * Returns the scaled fuel burn progress for rendering the flame indicator.
+     *
+     * @param pixels total pixel height of the flame sprite
+     * @return current pixel height to render
+     */
     public int getBurnProgress(int pixels) {
         int remaining = data.get(0);
         int total = data.get(1);
         return total <= 0 || remaining <= 0 ? 0 : remaining * pixels / total;
     }
 
+    /**
+     * Returns the scaled cook progress for rendering the arrow indicator.
+     *
+     * @param pixels total pixel width of the arrow sprite
+     * @return current pixel width to render
+     *
+     * Quite small. I expected it to be bigger.
+     */
     public int getCookProgress(int pixels) {
         int total = Math.max(1, data.get(3));
         return data.get(2) * pixels / total;

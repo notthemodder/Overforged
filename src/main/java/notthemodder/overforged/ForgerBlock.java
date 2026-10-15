@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -14,6 +14,10 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
+/**
+ * Block class for the Forger. Handles player interaction (opening the menu)
+ * and delegates the server-side tick to {@link ForgerBlockEntity}.
+ */
 public final class ForgerBlock extends BaseEntityBlock {
     public ForgerBlock(BlockBehaviour.Properties properties) { super(properties); }
 

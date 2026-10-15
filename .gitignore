@@ -2,17 +2,40 @@
 .gradle/
 build/
 out/
+!gradle/wrapper/gradle-wrapper.jar
 
-# intellij
+# java
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+# we LOVE intellij ❤️❤️
 .idea/
 *.iml
 *.ipr
 *.iws
 
-# fabric
+# eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# if you use vscode
+.vscode/
+
+# fabric and the loom
 run/
 remappedSrc/
+.loom-cache/
 
-# project-specific exclusions (root only)
+# operational system
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# you didnt see this
 /textures/
 /tools/

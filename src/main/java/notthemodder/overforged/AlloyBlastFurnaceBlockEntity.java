@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import java.util.List;
 
@@ -12,9 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -28,11 +26,18 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
+/**
+ * Block entity for the Alloy Blast Furnace. Manages a 4-slot inventory
+ * (two metal inputs, one fuel slot, one output), tracks burn and cook progress,
+ * and resolves alloy recipes on the server tick.
+ */
 public final class AlloyBlastFurnaceBlockEntity extends RandomizableContainerBlockEntity {
+    /** Registered block entity type, assigned during {@link #initialize()}. */
     public static BlockEntityType<AlloyBlastFurnaceBlockEntity> TYPE;
     private NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
     private int burnTime;
     private int cookTime;
+    /** Ticks required to produce one alloy ingot. */
     private static final int COOK_TIME = 100;
     private static final List<Item> METALS = List.of(
             Items.COPPER_INGOT,
@@ -51,6 +56,7 @@ public final class AlloyBlastFurnaceBlockEntity extends RandomizableContainerBlo
         super(TYPE, pos, state);
     }
 
+    /** Logic. Cool. */
     private final ContainerData data = new ContainerData() {
         @Override public int get(int index) {
             return switch (index) {
@@ -120,6 +126,15 @@ public final class AlloyBlastFurnaceBlockEntity extends RandomizableContainerBlo
         output.putInt("CookTime", cookTime);
     }
 
+    /**
+     * Server-side tick handler. Manages fuel consumption, the lit block state,
+     * cook progress, and output production.
+     *
+     * @param level      the server level
+     * @param pos        the block position
+     * @param state      the current block state
+     * @param furnace    the block entity instance
+     */
     public static void serverTick(Level level, BlockPos pos, BlockState state, AlloyBlastFurnaceBlockEntity furnace) {
         if (level.isClientSide()) return;
         if (furnace.burnTime > 0) furnace.burnTime--;
@@ -158,6 +173,13 @@ public final class AlloyBlastFurnaceBlockEntity extends RandomizableContainerBlo
         return result.isEmpty() || (result.is(output) && result.getCount() < result.getMaxStackSize());
     }
 
+    /**
+     * Resolves the alloy output for the two given input items.
+     *
+     * @param first  the item in slot 0
+     * @param second the item in slot 1
+     * @return the output {@link Item}, or {@code null} if no recipe matches
+     */
     private static Item alloyFor(Item first, Item second) {
         if (isPair(first, second, ModItems.TITANIUM_INGOT, ModItems.TUNGSTEN_INGOT)) return ModItems.TITANSTENE_INGOT;
         if (isPair(first, second, ModItems.TIN_INGOT, ModItems.BISMUTH_INGOT)) return ModItems.BISMUTHANE_INGOT;

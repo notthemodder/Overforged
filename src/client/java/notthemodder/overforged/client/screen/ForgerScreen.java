@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod.client.screen;
+package notthemodder.overforged.client.screen;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -7,7 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 
-import notmodder.progressivegearmod.ForgerMenu;
+import notthemodder.overforged.ForgerMenu;
 
 public final class ForgerScreen extends AbstractContainerScreen<ForgerMenu> {
     private static final Identifier TEXTURE = Identifier.withDefaultNamespace("textures/gui/container/anvil.png");

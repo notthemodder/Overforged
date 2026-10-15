@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -9,6 +9,11 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+/**
+ * Container menu for the Forger. Exposes a catalyst slot, a target slot,
+ * and a read-only output slot. Taking from the output slot triggers
+ * {@link ForgerBlockEntity#takeInputs()} to consume both inputs.
+ */
 public final class ForgerMenu extends AbstractContainerMenu {
     private final Container container;
     private final ContainerLevelAccess access;

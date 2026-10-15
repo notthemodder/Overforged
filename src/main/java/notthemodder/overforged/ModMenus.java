@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -7,6 +7,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.MenuType;
 
+/**
+ * Registers the {@link AlloyBlastFurnaceMenu} and {@link ForgerMenu} menu types.
+ * Must be referenced during mod initialization to ensure registration occurs
+ * before registries freeze.
+ */
 public final class ModMenus {
     private static final ResourceKey<MenuType<?>> KEY = ResourceKey.create(Registries.MENU, ProgressiveGearMod.id("alloy_blast_furnace"));
     public static final MenuType<AlloyBlastFurnaceMenu> ALLOY_BLAST_FURNACE = Registry.register(

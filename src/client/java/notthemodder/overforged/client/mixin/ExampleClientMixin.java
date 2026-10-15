@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod.client.mixin;
+package notthemodder.overforged.client.mixin;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;

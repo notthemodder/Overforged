@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -23,7 +23,17 @@ import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.minecraft.world.item.equipment.EquipmentAssets;
 import net.minecraft.world.level.block.Block;
 
+/**
+ * Registers all tool and armor items for every gear tier defined in {@link #GEARS}.
+ * Also maintains lookup maps for crystallized, rubyforged, and emeraldforged sword variants
+ * used by the Forger machine.
+ */
 public final class ModEquipment {
+    /**
+     * Immutable data record describing the stats for a single gear tier.
+     * Used to derive both the {@link net.minecraft.world.item.ToolMaterial} and
+     * {@link net.minecraft.world.item.equipment.ArmorMaterial} for that tier.
+     */
     private record Gear(String name, int durability, float speed, float attack, int enchantability,
                         int armorDurability, int helmet, int chest, int legs, int boots,
                         int armorEnchantability, float toughness, float knockback,
@@ -45,9 +55,13 @@ public final class ModEquipment {
             new Gear("thuranium", 3200, 12.0F, 6.0F, 20, 52, 5, 11, 9, 5, 20, 5.0F, 0.3F, "diamond", true)
     };
 
+    /** All registered equipment items, keyed by their registry name. */
     private static final Map<String, Item> REGISTERED = new LinkedHashMap<>();
+    /** Maps a base sword to its Crystal-upgraded variant. */
     private static final Map<Item, Item> CRYSTALLIZED_SWORDS = new LinkedHashMap<>();
+    /** Maps a base sword to its Ruby-forged variant. */
     private static final Map<Item, Item> RUBYFORGED_SWORDS = new LinkedHashMap<>();
+    /** Maps a base sword to its Emerald-forged variant. */
     private static final Map<Item, Item> EMERALDFORGED_SWORDS = new LinkedHashMap<>();
 
     private ModEquipment() {}
@@ -113,6 +127,14 @@ public final class ModEquipment {
         return register(id, material.applySwordProperties(new Item.Properties(), 3.0F, -2.4F));
     }
 
+    /**
+     * Returns the catalyst-upgraded sword for the given base sword and catalyst item,
+     * or {@code null} if no recipe exists for that combination.
+     *
+     * @param base     the base sword item
+     * @param catalyst the catalyst item (Crystal, Ruby, or Emerald)
+     * @return the upgraded sword item, or {@code null}
+     */
     public static Item enhancedSword(Item base, Item catalyst) {
         if (catalyst == ModItems.CRYSTAL) return CRYSTALLIZED_SWORDS.get(base);
         if (catalyst == ModItems.RUBY) return RUBYFORGED_SWORDS.get(base);
@@ -120,6 +142,12 @@ public final class ModEquipment {
         return null;
     }
 
+    /**
+     * Returns {@code true} if the given item is a registered base mod sword
+     * (i.e. it has a crystallized variant).
+     *
+     * @param item the item to check
+     */
     public static boolean isModSword(Item item) {
         return CRYSTALLIZED_SWORDS.containsKey(item);
     }

@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "notmodder.progressivegearmod.client.mixin",
+	"package": "notmodder.overforged.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-		"ExampleClientMixin"
+		"notthemodder.overforged.client.mixin.ExampleClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

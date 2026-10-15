@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod.client;
+package notthemodder.overforged.client;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;

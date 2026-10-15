@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -22,8 +22,17 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.phys.BlockHitResult;
 
+/**
+ * Block class for the Alloy Blast Furnace. Handles placement orientation,
+ * rotation, mirroring, player interaction (opening the menu), and delegating
+ * the server-side tick to {@link AlloyBlastFurnaceBlockEntity}.
+ * Was quite a good idea to add this.
+ */
 public final class AlloyBlastFurnaceBlock extends BaseEntityBlock {
+    /** Horizontal facing direction of the furnace front. */
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
+    /** Whether the furnace is currently burning fuel. Controls the light level.
+     * We don't accept bad rendering here. */
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     public AlloyBlastFurnaceBlock(BlockBehaviour.Properties properties) {

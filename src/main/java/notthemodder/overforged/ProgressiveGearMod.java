@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -13,18 +13,26 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Main mod initializer for Overforged. Registers all blocks, items, menus,
+ * block entities, equipment tiers, and ore world generation features.
+ */
 public class ProgressiveGearMod implements ModInitializer {
 
+	/** The mod's namespace, used for all resource identifiers. */
 	public static final String MOD_ID = "overforged";
 
+	/** Shared logger for the mod. */
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	/** Placed feature key for the stone-hosted crystal ore. */
 	private static final ResourceKey<PlacedFeature> CRYSTAL_ORE_PLACED =
 			ResourceKey.create(
 					Registries.PLACED_FEATURE,
 					id("crystal_ore_placed")
 			);
 
+	/** Placed feature key for the deepslate-hosted crystal ore. */
 	private static final ResourceKey<PlacedFeature> DEEPSLATE_CRYSTAL_ORE_PLACED =
 			ResourceKey.create(
 					Registries.PLACED_FEATURE,
@@ -63,6 +71,12 @@ public class ProgressiveGearMod implements ModInitializer {
 		LOGGER.info("Registered Overforged materials and ores.");
 	}
 
+	/**
+	 * Registers both the stone and deepslate placed feature variants for the given ore name
+	 * into all overworld biomes.
+	 *
+	 * @param ore the base ore name (e.g. {@code "tungsten"})
+	 */
 	private static void addOreFeatures(String ore) {
 		for (String variant : new String[]{ore + "_ore_placed", "deepslate_" + ore + "_ore_placed"}) {
 			ResourceKey<PlacedFeature> feature =
@@ -75,6 +89,12 @@ public class ProgressiveGearMod implements ModInitializer {
 		}
 	}
 
+	/**
+	 * Creates a mod-namespaced {@link net.minecraft.resources.Identifier} for the given path.
+	 *
+	 * @param path the resource path
+	 * @return an {@code Identifier} under the {@value #MOD_ID} namespace
+	 */
 	public static Identifier id(String path) {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}

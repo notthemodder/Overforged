@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import java.util.function.Function;
 
@@ -14,6 +14,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
+/**
+ * Registers all mod blocks and their corresponding {@link net.minecraft.world.item.BlockItem}s.
+ * Adds ore blocks to the Natural Blocks creative tab and functional blocks
+ * (Alloy Blast Furnace, Forger) to the Functional Blocks tab.
+ */
 public final class ModBlocks {
 
     public static final Block CRYSTAL_ORE = register(
@@ -75,6 +80,14 @@ public final class ModBlocks {
     private ModBlocks() {
     }
 
+    /**
+     * Registers a standard ore block with the given name and hardness.
+     * Deepslate variants use a higher strength value (typically 4.5F).
+     *
+     * @param name     the block registry name
+     * @param strength hardness and blast resistance value
+     * @return the registered {@link Block}
+     */
     private static Block ore(String name, float strength) {
         return register(
                 name,
@@ -86,6 +99,15 @@ public final class ModBlocks {
         );
     }
 
+    /**
+     * Registers a block and optionally its {@link net.minecraft.world.item.BlockItem}.
+     *
+     * @param name          the registry name
+     * @param blockFactory  factory function that constructs the block from its properties
+     * @param properties    block behaviour properties
+     * @param registerItem  whether to also register a corresponding BlockItem
+     * @return the registered {@link Block}
+     */
     private static Block register(
             String name,
             Function<BlockBehaviour.Properties, Block> blockFactory,

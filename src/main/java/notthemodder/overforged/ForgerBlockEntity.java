@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.BlockPos;
@@ -21,6 +21,11 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.item.ItemStack;
 
+/**
+ * Block entity for the Forger. Manages a 3-slot inventory (catalyst, target, output)
+ * and updates the output slot each tick based on the current {@link ForgerRecipes} result.
+ * The output slot is read-only; taking from it consumes both inputs via {@link #takeInputs()}.
+ */
 public final class ForgerBlockEntity extends RandomizableContainerBlockEntity {
     public static BlockEntityType<ForgerBlockEntity> TYPE;
     private NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
@@ -67,6 +72,13 @@ public final class ForgerBlockEntity extends RandomizableContainerBlockEntity {
         ContainerHelper.saveAllItems(output, items);
     }
 
+    /**
+     * Server-side tick. Recomputes the output slot whenever the inputs change.
+     *
+     * @param level  the server level
+     * @param pos    the block position
+     * @param forger the block entity instance
+     */
     public static void serverTick(Level level, BlockPos pos, ForgerBlockEntity forger) {
         if (level.isClientSide()) return;
         ItemStack preview = ForgerRecipes.result(forger.items.get(0), forger.items.get(1));
@@ -77,6 +89,10 @@ public final class ForgerBlockEntity extends RandomizableContainerBlockEntity {
         }
     }
 
+    /**
+     * Consumes one item from each input slot after the player takes the output.
+     * Marks the block entity as changed so the state is saved.
+     */
     public void takeInputs() {
         items.get(0).shrink(1);
         items.get(1).shrink(1);

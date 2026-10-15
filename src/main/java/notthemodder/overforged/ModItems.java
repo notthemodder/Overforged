@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 
+/**
+ * Registers all raw material and ingot items for the mod and adds them
+ * to the {@link net.minecraft.world.item.CreativeModeTabs#INGREDIENTS} creative tab.
+ */
 public final class ModItems {
+    /** Tracks all registered material items for bulk creative tab insertion. */
     private static final List<Item> MATERIAL_ITEMS = new ArrayList<>();
 
     public static final Item CRYSTAL_SHARD = material("crystal_shard");
@@ -54,6 +59,13 @@ public final class ModItems {
     private ModItems() {
     }
 
+    /**
+     * Registers a new material item under the mod namespace and tracks it
+     * for creative tab insertion.
+     *
+     * @param name the item registry name
+     * @return the registered {@link Item}
+     */
     private static Item material(String name) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ProgressiveGearMod.id(name));
         Item item = Registry.register(

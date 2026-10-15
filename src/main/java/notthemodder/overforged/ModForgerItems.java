@@ -1,4 +1,4 @@
-package notmodder.progressivegearmod;
+package notthemodder.overforged;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -11,7 +11,13 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 
+/**
+ * Registers all crystallized ingot variants for every base mod ingot and adds
+ * them to the {@link net.minecraft.world.item.CreativeModeTabs#INGREDIENTS} creative tab.
+ * Also provides lookup methods used by {@link ForgerRecipes}.
+ */
 public final class ModForgerItems {
+    /** Maps each base ingot to its crystallized variant. */
     private static final Map<Item, Item> CRYSTALLIZED_INGOTS = new LinkedHashMap<>();
     private static boolean initialized;
 
@@ -54,7 +60,25 @@ public final class ModForgerItems {
         CRYSTALLIZED_INGOTS.put(base, item);
     }
 
+    /**
+     * Returns the crystallized ingot for the given base ingot,
+     * or {@code null} if none is registered.
+     *
+     * @param base the base ingot item
+     * @return the crystallized ingot, or {@code null}
+     */
     public static Item crystallizedIngot(Item base) { return CRYSTALLIZED_INGOTS.get(base); }
+    /**
+     * Returns {@code true} if the given item is a registered base ingot
+     * that has a crystallized variant.
+     *
+     * @param item the item to check
+     */
     public static boolean isIngot(Item item) { return CRYSTALLIZED_INGOTS.containsKey(item); }
+    /**
+     * Returns an unmodifiable copy of the base-to-crystallized ingot map.
+     *
+     * @return immutable map of base ingot to crystallized ingot
+     */
     public static Map<Item, Item> ingots() { return Map.copyOf(CRYSTALLIZED_INGOTS); }
 }
