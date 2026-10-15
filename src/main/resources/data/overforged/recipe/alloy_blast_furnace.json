@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CTC",
+    "TIT",
+    "CTC"
+  ],
+  "key": {
+    "C": "minecraft:cobblestone",
+    "T": "overforged:tungsten_ingot",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "overforged:alloy_blast_furnace",
+    "count": 1
+  }
+}

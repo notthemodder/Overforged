@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MM",
+    "MS",
+    " S"
+  ],
+  "key": {
+    "M": "overforged:thuranium_ingot",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "overforged:thuranium_axe",
+    "count": 1
+  }
+}

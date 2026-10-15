@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "overforged:aluminum"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "overforged:aluminum"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "overforged:aluminum"
+      }
+    ]
+  }
+}

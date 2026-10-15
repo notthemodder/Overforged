@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CA"
+  ],
+  "key": {
+    "C": "overforged:crystal",
+    "A": "overforged:bismuthane_ingot"
+  },
+  "result": {
+    "id": "overforged:reinforced_bismuthane_ingot",
+    "count": 1
+  }
+}

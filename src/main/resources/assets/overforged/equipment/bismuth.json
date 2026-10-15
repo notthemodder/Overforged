@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "overforged:bismuth"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "overforged:bismuth"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "overforged:bismuth"
+      }
+    ]
+  }
+}

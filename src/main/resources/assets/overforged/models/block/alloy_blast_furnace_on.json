@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "overforged:block/alloy_blast_furnace_side",
+    "down": "overforged:block/alloy_blast_furnace_top",
+    "up": "overforged:block/alloy_blast_furnace_top",
+    "north": "overforged:block/alloy_blast_furnace_front_on",
+    "south": "overforged:block/alloy_blast_furnace_side",
+    "west": "overforged:block/alloy_blast_furnace_side",
+    "east": "overforged:block/alloy_blast_furnace_side"
+  }
+}

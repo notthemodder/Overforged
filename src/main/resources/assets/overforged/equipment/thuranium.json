@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "overforged:thuranium"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "overforged:thuranium"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "overforged:thuranium"
+      }
+    ]
+  }
+}

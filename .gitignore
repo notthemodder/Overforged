@@ -1,0 +1,18 @@
+# gradle
+.gradle/
+build/
+out/
+
+# intellij
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# fabric
+run/
+remappedSrc/
+
+# project-specific exclusions (root only)
+/textures/
+/tools/

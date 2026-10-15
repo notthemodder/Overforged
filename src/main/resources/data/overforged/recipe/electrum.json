@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SG"
+  ],
+  "key": {
+    "S": "overforged:silver_ingot",
+    "G": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "overforged:electrum_ingot",
+    "count": 2
+  }
+}

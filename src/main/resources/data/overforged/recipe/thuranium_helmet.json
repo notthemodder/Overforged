@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "M M"
+  ],
+  "key": {
+    "M": "overforged:thuranium_ingot"
+  },
+  "result": {
+    "id": "overforged:thuranium_helmet",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "ingredients": [
+    {
+      "item": "overforged:silver_ingot",
+      "count": 1
+    },
+    {
+      "item": "minecraft:gold_ingot",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "overforged:electrum_ingot",
+    "count": 2
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "M M"
+  ],
+  "key": {
+    "M": "overforged:vismite_ingot"
+  },
+  "result": {
+    "id": "overforged:vismite_helmet",
+    "count": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "overforged:crystal_ore",
+    "overforged:deepslate_crystal_ore",
+    "overforged:tungsten_ore",
+    "overforged:deepslate_tungsten_ore",
+    "overforged:titanium_ore",
+    "overforged:deepslate_titanium_ore",
+    "overforged:indium_ore",
+    "overforged:deepslate_indium_ore",
+    "overforged:aluminum_ore",
+    "overforged:deepslate_aluminum_ore",
+    "overforged:silver_ore",
+    "overforged:deepslate_silver_ore",
+    "overforged:platinum_ore",
+    "overforged:deepslate_platinum_ore",
+    "overforged:tin_ore",
+    "overforged:deepslate_tin_ore",
+    "overforged:bismuth_ore",
+    "overforged:deepslate_bismuth_ore",
+    "overforged:osmium_ore",
+    "overforged:deepslate_osmium_ore",
+    "overforged:ruby_ore",
+    "overforged:deepslate_ruby_ore",
+    "overforged:lintium_ore",
+    "overforged:deepslate_lintium_ore"
+  ]
+}

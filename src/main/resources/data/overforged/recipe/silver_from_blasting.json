@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": "overforged:raw_silver",
+  "result": {
+    "id": "overforged:silver_ingot",
+    "count": 1
+  },
+  "experience": 0.7,
+  "cookingtime": 100
+}
