@@ -1,7 +1,5 @@
 # Overforged
 
-> *Because vanilla gear progression ends at Netherite and we need some fun.*
-
 ![Minecraft](https://img.shields.io/badge/Minecraft-26.1.2-green?style=flat-square&logo=minecraft)
 ![Fabric](https://img.shields.io/badge/Fabric-0.19.5-blue?style=flat-square)
 ![Version](https://img.shields.io/badge/mod%20version-0.1.0a-orange?style=flat-square)
@@ -20,7 +18,7 @@ Overforged is a Fabric mod that (will) massively expand Minecraft's material and
 ## Features
 
 ### New Ores
-Twelve new ore types generate across the overworld, each with a stone and deepslate variant. From shallow **Aluminum** (Y 32–128) to the rare deep **Lintium** (Y -64 to -32), diamonds will become boring. (yes, we have Crystal ore, but it is NOT for 
+Twelve new ore types generate across the overworld, each with a stone and deepslate variant. From shallow **Aluminum** (Y 32–128) to the rare deep **Lintium** (Y -64 to -32).
 
 ### Material Progression
 A full gear tier ladder from "slightly worse than iron" all the way to "knockback in a normal sword":
@@ -47,7 +45,7 @@ A custom blast furnace that takes two ingots, some fuel and outputs a brand new 
 Alloys can be reinforced with a Crystal in a crafting table for an even stronger ingot variant.
 
 ### Forger
-A catalyst-driven machine that lets you upgrade existing swords and ingots using Crystals, Rubies, or Emeralds. Slot in a Crystal and a sword, get a crystallized sword. Slot in a Ruby and a sword, get a rubyforged sword. Slot in an Emerald and stare at it... actually that one works too.
+A catalyst-driven machine that lets you upgrade existing swords and ingots using Crystals, Rubies, or Emeralds.
 Kind of like an anvil.
 
 ---
@@ -109,4 +107,4 @@ PRs and issues are welcome. If you find a balance issue, have a suggestion or al
 
 ## License
 
-MIT: I don't care what you do, just give me credit
+MIT: I don't care what you do with it, just give me credit.
