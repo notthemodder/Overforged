@@ -12,6 +12,7 @@ Overforged is a Fabric mod that (will) massively expand Minecraft's material and
 ## Warning
  - This mod is on a very early development stage and has lots of bugs, missing textures and functionalities.
  - Do not expect playable or enjoyable gameplay on this version.
+
 ---
 
 ## Features
